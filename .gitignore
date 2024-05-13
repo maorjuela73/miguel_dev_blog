@@ -1,0 +1,18 @@
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler
+Gemfile.lock
+
+# Log and temp files
+*.log
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# yml files starting with _config
+_config*.yml

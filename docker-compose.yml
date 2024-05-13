@@ -1,0 +1,27 @@
+services:
+  development:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "$PWD:/srv/jekyll:Z"
+    platform: linux/amd64
+    ports:
+      - "[::1]:4000:4000"
+    command: jekyll serve --watch --incremental --livereload
+
+  testing:
+    build: .
+    volumes:
+      - "$PWD:/srv/jekyll:Z"
+    ports:
+      - "[::1]:4001:4000"
+    command: jekyll serve --watch --incremental --livereload --config _config.yml,_config_testing.yml
+
+  production:
+    build: .
+    volumes:
+      - "$PWD:/srv/jekyll:Z"
+    ports:
+      - "[::1]:4002:4000"
+    command: jekyll serve --livereload
